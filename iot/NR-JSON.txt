@@ -1,0 +1,370 @@
+node-red dashboard using guage
+
+[
+    {
+        "id": "88c05abbb29c15f6",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9066aa0d3d4ea411",
+        "type": "inject",
+        "z": "88c05abbb29c15f6",
+        "name": "welcome",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "VIT",
+        "payload": "60",
+        "payloadType": "num",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "b8dc85293a2d87a3",
+                "ea7fb02d028c45aa"
+            ]
+        ]
+    },
+    {
+        "id": "b8dc85293a2d87a3",
+        "type": "ui_gauge",
+        "z": "88c05abbb29c15f6",
+        "name": "",
+        "group": "1854f33964017662",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ea7fb02d028c45aa",
+        "type": "debug",
+        "z": "88c05abbb29c15f6",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1854f33964017662",
+        "type": "ui_group",
+        "name": "MQTT-NR",
+        "tab": "5ae72764315e6d76",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ae72764315e6d76",
+        "type": "ui_tab",
+        "name": "IDA",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
+
+
+//////////////////////////////////////////////////////////
+
+node-red and email bynance
+
+[
+    {
+        "id": "6e9b83ebdd6e6be4",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a767bd4a89ccbabf",
+        "type": "inject",
+        "z": "6e9b83ebdd6e6be4",
+        "name": "stock name",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"name\":\"HINDUNILVR\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "43b941c5f572ee20"
+            ]
+        ]
+    },
+    {
+        "id": "43b941c5f572ee20",
+        "type": "http request",
+        "z": "6e9b83ebdd6e6be4",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:5000",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "6a8371cb77413964",
+                "24a75bce80ad6235"
+            ]
+        ]
+    },
+    {
+        "id": "6a8371cb77413964",
+        "type": "debug",
+        "z": "6e9b83ebdd6e6be4",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3dbb4582f93d1250",
+        "type": "comment",
+        "z": "6e9b83ebdd6e6be4",
+        "name": "21BRS1593",
+        "info": "",
+        "x": 230,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "24a75bce80ad6235",
+        "type": "ui_template",
+        "z": "6e9b83ebdd6e6be4",
+        "group": "04b09c0f5d972e0f",
+        "name": "",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04b09c0f5d972e0f",
+        "type": "ui_group",
+        "name": "predict",
+        "tab": "b172a648817653f2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b172a648817653f2",
+        "type": "ui_tab",
+        "name": "stock",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
+
+
+//////////////////////////////////////////
+node-red and thingspeak
+
+[
+    {
+        "id": "88c05abbb29c15f6",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3780a7990fca0106",
+        "type": "inject",
+        "z": "88c05abbb29c15f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "danger",
+        "payload": "100",
+        "payloadType": "num",
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "5f626f4131c387a5",
+                "5167b4645e46570d"
+            ]
+        ]
+    },
+    {
+        "id": "5f626f4131c387a5",
+        "type": "thingspeak42",
+        "z": "88c05abbb29c15f6",
+        "name": "",
+        "delay": "15",
+        "topic1": "",
+        "topic2": "",
+        "topic3": "",
+        "topic4": "",
+        "topic5": "",
+        "topic6": "",
+        "topic7": "",
+        "topic8": "",
+        "endpoint": "https://thingspeak.com",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5167b4645e46570d",
+        "type": "ui_gauge",
+        "z": "88c05abbb29c15f6",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00B500",
+            "#E6E600",
+            "#CA3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 460,
+        "wires": []
+    }
+]
+
+///////////////////////////////////////////////////////
+node-red and thingsboard
+
+[
+    {
+        "id": "e39c78998763bfd2",
+        "type": "inject",
+        "z": "88c05abbb29c15f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temperature\":80,\"light\":\"off\"}",
+        "payloadType": "json",
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "1769a74aad9d2a65"
+            ]
+        ]
+    }
+]
+
+
